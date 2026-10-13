@@ -1,0 +1,705 @@
+// !$*UTF8*$!
+{
+	archiveVersion = "1";
+	classes = {
+	};
+	objectVersion = "46";
+	objects = {
+		6C0E97FFF80499D021D899BD = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/rt2860.cpp";
+			sourceTree = "<group>";
+		};
+		4D93952C4B006A4B249BC891 = {
+			isa = "PBXBuildFile";
+			fileRef = "6C0E97FFF80499D021D899BD";
+		};
+		B449ABE52ACE1C9440CC4C23 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/RTBSDGlue.cpp";
+			sourceTree = "<group>";
+		};
+		4E7BBEEC1EA7A3EC106D58AD = {
+			isa = "PBXBuildFile";
+			fileRef = "B449ABE52ACE1C9440CC4C23";
+		};
+		57FDE5F997FE6CD38C144D47 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/RT3090Network.cpp";
+			sourceTree = "<group>";
+		};
+		7E8F0E4D0C1B129E5709E700 = {
+			isa = "PBXBuildFile";
+			fileRef = "57FDE5F997FE6CD38C144D47";
+		};
+		CC1E5344AA871F90260813DB = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/rijndael.c";
+			sourceTree = "<group>";
+		};
+		65F3B62CEDEBC990C7E4B045 = {
+			isa = "PBXBuildFile";
+			fileRef = "CC1E5344AA871F90260813DB";
+		};
+		54F64B2BFE9384C45F7F87DC = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/RTTimeout.cpp";
+			sourceTree = "<group>";
+		};
+		F4076D2C1AC3AF6B8E9F6E34 = {
+			isa = "PBXBuildFile";
+			fileRef = "54F64B2BFE9384C45F7F87DC";
+		};
+		83193BB8278807D57120EE13 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/ieee80211.c";
+			sourceTree = "<group>";
+		};
+		6AA9AA4EE6C1362FEF7431FD = {
+			isa = "PBXBuildFile";
+			fileRef = "83193BB8278807D57120EE13";
+		};
+		7ECBC1CDA338C048548110C8 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/RTMbuf.cpp";
+			sourceTree = "<group>";
+		};
+		EB81479D41058B17FE03E771 = {
+			isa = "PBXBuildFile";
+			fileRef = "7ECBC1CDA338C048548110C8";
+		};
+		5EC682E50357CC5E709D1406 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/RTIfq.cpp";
+			sourceTree = "<group>";
+		};
+		E53B5C60B323403CC9855EF2 = {
+			isa = "PBXBuildFile";
+			fileRef = "5EC682E50357CC5E709D1406";
+		};
+		5EEE49F2282309353BC4CF03 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/RTConnection.cpp";
+			sourceTree = "<group>";
+		};
+		2E0F741E2638042530CCF70D = {
+			isa = "PBXBuildFile";
+			fileRef = "5EEE49F2282309353BC4CF03";
+		};
+		FAADCCAD256AA374058B2846 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/ieee80211_input.c";
+			sourceTree = "<group>";
+		};
+		6542ADEF79C78C479C3E78DE = {
+			isa = "PBXBuildFile";
+			fileRef = "FAADCCAD256AA374058B2846";
+		};
+		CEF82C710E292B0A43E27B01 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/ieee80211_pae_output.c";
+			sourceTree = "<group>";
+		};
+		9C04C68764EAA059263E226E = {
+			isa = "PBXBuildFile";
+			fileRef = "CEF82C710E292B0A43E27B01";
+		};
+		2ACB90A1CA7CE172D78D361B = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/ieee80211_node.c";
+			sourceTree = "<group>";
+		};
+		095EB49960E6FA9D821AF94C = {
+			isa = "PBXBuildFile";
+			fileRef = "2ACB90A1CA7CE172D78D361B";
+		};
+		9C58E01067D7B80253E248C5 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/ieee80211_proto.c";
+			sourceTree = "<group>";
+		};
+		76B778D3C16C8145AC04B9E6 = {
+			isa = "PBXBuildFile";
+			fileRef = "9C58E01067D7B80253E248C5";
+		};
+		884BD186FBF5424D9368521A = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/ieee80211_pae_input.c";
+			sourceTree = "<group>";
+		};
+		D5665CBE8876C9FFE70E8EEA = {
+			isa = "PBXBuildFile";
+			fileRef = "884BD186FBF5424D9368521A";
+		};
+		6F054A824B24A6904EA37792 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "port/ieee80211_mira.c";
+			sourceTree = "<group>";
+		};
+		974432DA5765336D8930365D = {
+			isa = "PBXBuildFile";
+			fileRef = "6F054A824B24A6904EA37792";
+		};
+		33467AF33345FB4115C76F9F = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/_string.c";
+			sourceTree = "<group>";
+		};
+		BC26EA3E41509909F7D133FC = {
+			isa = "PBXBuildFile";
+			fileRef = "33467AF33345FB4115C76F9F";
+		};
+		F8205CB10CDA0211E6E82D05 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_amrr.c";
+			sourceTree = "<group>";
+		};
+		C3615A53965D0B6FB5E0693E = {
+			isa = "PBXBuildFile";
+			fileRef = "F8205CB10CDA0211E6E82D05";
+		};
+		CAE5ED3955B08A0ADC73D8F7 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_crypto.c";
+			sourceTree = "<group>";
+		};
+		7F11591E6980961AB06AAF1F = {
+			isa = "PBXBuildFile";
+			fileRef = "CAE5ED3955B08A0ADC73D8F7";
+		};
+		6E899E9A19A38357C4ED6B01 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_crypto_bip.c";
+			sourceTree = "<group>";
+		};
+		1BC594439E8B86A835789FCF = {
+			isa = "PBXBuildFile";
+			fileRef = "6E899E9A19A38357C4ED6B01";
+		};
+		94577A96B48C244105EAAEE1 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_crypto_ccmp.c";
+			sourceTree = "<group>";
+		};
+		30D3A22779E8C97A50A5D7C3 = {
+			isa = "PBXBuildFile";
+			fileRef = "94577A96B48C244105EAAEE1";
+		};
+		3FE2C0E85C268F7D966812CA = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_crypto_tkip.c";
+			sourceTree = "<group>";
+		};
+		226CEB835DA66B9E57E051B7 = {
+			isa = "PBXBuildFile";
+			fileRef = "3FE2C0E85C268F7D966812CA";
+		};
+		75C2BB6B98BE6F87FCEC86A3 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_crypto_wep.c";
+			sourceTree = "<group>";
+		};
+		ACEE4230C8DBBEFC75E1ECD1 = {
+			isa = "PBXBuildFile";
+			fileRef = "75C2BB6B98BE6F87FCEC86A3";
+		};
+		1C065AB083F4B59B98793129 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_ioctl.c";
+			sourceTree = "<group>";
+		};
+		2CA421EBE76BEF5BEA45BEA4 = {
+			isa = "PBXBuildFile";
+			fileRef = "1C065AB083F4B59B98793129";
+		};
+		6D22F47A0C1F04D112746482 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_output.c";
+			sourceTree = "<group>";
+		};
+		7D1636D8A277BDCF5F896AA3 = {
+			isa = "PBXBuildFile";
+			fileRef = "6D22F47A0C1F04D112746482";
+		};
+		558529715CABFD60DC6C0134 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_ra.c";
+			sourceTree = "<group>";
+		};
+		F696A2883275BEAE7B669EC3 = {
+			isa = "PBXBuildFile";
+			fileRef = "558529715CABFD60DC6C0134";
+		};
+		322EE1416547FDB215E100E5 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_regdomain.c";
+			sourceTree = "<group>";
+		};
+		67EE1916CB18BFC8FF749D7A = {
+			isa = "PBXBuildFile";
+			fileRef = "322EE1416547FDB215E100E5";
+		};
+		BBB177F3F4982FFED11652E6 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/ieee80211_rssadapt.c";
+			sourceTree = "<group>";
+		};
+		5B73FE2D1AC6BD2F8D14A01C = {
+			isa = "PBXBuildFile";
+			fileRef = "BBB177F3F4982FFED11652E6";
+		};
+		92E9A0286795631AFF60E8DD = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/net80211/timeout.c";
+			sourceTree = "<group>";
+		};
+		BFD3E79E6FE1757FDD18B8D4 = {
+			isa = "PBXBuildFile";
+			fileRef = "92E9A0286795631AFF60E8DD";
+		};
+		2FB68A0C07F3259C34455ABC = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/aes.c";
+			sourceTree = "<group>";
+		};
+		433331C9A99AE80B350459C1 = {
+			isa = "PBXBuildFile";
+			fileRef = "2FB68A0C07F3259C34455ABC";
+		};
+		6440FBBC5A82CB38EE8487AD = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/arc4.c";
+			sourceTree = "<group>";
+		};
+		D3FC10058505E07E9AAA00FC = {
+			isa = "PBXBuildFile";
+			fileRef = "6440FBBC5A82CB38EE8487AD";
+		};
+		60804C7444E9A4A4C33A424D = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/blf.c";
+			sourceTree = "<group>";
+		};
+		9D14CC8EE24EA6E180055007 = {
+			isa = "PBXBuildFile";
+			fileRef = "60804C7444E9A4A4C33A424D";
+		};
+		132FB4A38A7612253963A680 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/cast.c";
+			sourceTree = "<group>";
+		};
+		6C682AE6E8AD6B37B4326805 = {
+			isa = "PBXBuildFile";
+			fileRef = "132FB4A38A7612253963A680";
+		};
+		F76E8557E6F9FF2C9B5DBB2F = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/chachapoly.c";
+			sourceTree = "<group>";
+		};
+		D2E61D8F14A191A8EF414902 = {
+			isa = "PBXBuildFile";
+			fileRef = "F76E8557E6F9FF2C9B5DBB2F";
+		};
+		2AB9786279D3354FFC2AC0EA = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/cmac.c";
+			sourceTree = "<group>";
+		};
+		559B1FB1FD81EE484CF4F012 = {
+			isa = "PBXBuildFile";
+			fileRef = "2AB9786279D3354FFC2AC0EA";
+		};
+		3B24FCCDCF957FCD3AF30EF7 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/ecb3_enc.c";
+			sourceTree = "<group>";
+		};
+		8D0B94D18D75591530B0CBAF = {
+			isa = "PBXBuildFile";
+			fileRef = "3B24FCCDCF957FCD3AF30EF7";
+		};
+		2C98D337F7578FEBCE6004BA = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/ecb_enc.c";
+			sourceTree = "<group>";
+		};
+		DCF55482C310EC8141767296 = {
+			isa = "PBXBuildFile";
+			fileRef = "2C98D337F7578FEBCE6004BA";
+		};
+		BCA781C6FA2315FD515641E1 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/gmac.c";
+			sourceTree = "<group>";
+		};
+		5F702B3E4B60C9C8F94E7B5C = {
+			isa = "PBXBuildFile";
+			fileRef = "BCA781C6FA2315FD515641E1";
+		};
+		51BC516621008147336C6C61 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/hmac.c";
+			sourceTree = "<group>";
+		};
+		DC3459BFA22F6571EFF85668 = {
+			isa = "PBXBuildFile";
+			fileRef = "51BC516621008147336C6C61";
+		};
+		0309E73F0D048BBAB3F1B2FA = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/idgen.c";
+			sourceTree = "<group>";
+		};
+		C363F7F1AC80836F57A0666C = {
+			isa = "PBXBuildFile";
+			fileRef = "0309E73F0D048BBAB3F1B2FA";
+		};
+		8A7B65ED7553E5981916F039 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/key_wrap.c";
+			sourceTree = "<group>";
+		};
+		65676E56EAD572CE9842894B = {
+			isa = "PBXBuildFile";
+			fileRef = "8A7B65ED7553E5981916F039";
+		};
+		E235992772B58B8939EBDE0D = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/md5.c";
+			sourceTree = "<group>";
+		};
+		72968BC9A5E8BA2DF0A3D202 = {
+			isa = "PBXBuildFile";
+			fileRef = "E235992772B58B8939EBDE0D";
+		};
+		B2BA514D6449081740C9D33D = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/michael.c";
+			sourceTree = "<group>";
+		};
+		93B267C133A2EA0C1ECEBC31 = {
+			isa = "PBXBuildFile";
+			fileRef = "B2BA514D6449081740C9D33D";
+		};
+		81C03D5001D875972ACC2F89 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/poly1305.c";
+			sourceTree = "<group>";
+		};
+		45215EB68A8AE871A72CA6DA = {
+			isa = "PBXBuildFile";
+			fileRef = "81C03D5001D875972ACC2F89";
+		};
+		4C3F8356B5CB6C4A6CF93A4C = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/rmd160.c";
+			sourceTree = "<group>";
+		};
+		E24658CC92482BF10F85C410 = {
+			isa = "PBXBuildFile";
+			fileRef = "4C3F8356B5CB6C4A6CF93A4C";
+		};
+		2256E839AAC67EEDBD36B243 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/set_key.c";
+			sourceTree = "<group>";
+		};
+		9299C2D7EAA81304FCA5A115 = {
+			isa = "PBXBuildFile";
+			fileRef = "2256E839AAC67EEDBD36B243";
+		};
+		C478B2A2BCAFD9A855622661 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/sha1-pbkdf2.c";
+			sourceTree = "<group>";
+		};
+		CFE51C88882C6A7EFC595F08 = {
+			isa = "PBXBuildFile";
+			fileRef = "C478B2A2BCAFD9A855622661";
+		};
+		FC707D1D2AB15F26A57F2D8F = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/sha1.c";
+			sourceTree = "<group>";
+		};
+		41B1F24EDB4E3366BEEA97FC = {
+			isa = "PBXBuildFile";
+			fileRef = "FC707D1D2AB15F26A57F2D8F";
+		};
+		65714E54220F79EF94D0FCE1 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/crypto/sha2.c";
+			sourceTree = "<group>";
+		};
+		896C10AE00524E03C6E12315 = {
+			isa = "PBXBuildFile";
+			fileRef = "65714E54220F79EF94D0FCE1";
+		};
+		B2E48D5E143A1E435070AD81 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "vendor/itl80211/openbsd/sys/arp.c";
+			sourceTree = "<group>";
+		};
+		99C0274784267A9DA6613729 = {
+			isa = "PBXBuildFile";
+			fileRef = "B2E48D5E143A1E435070AD81";
+		};
+		1E003175719918E41CA835CB = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.c.c";
+			path = "src/rt3090_core.c";
+			sourceTree = "<group>";
+		};
+		B53AF23A6F4ECFDD01E38241 = {
+			isa = "PBXBuildFile";
+			fileRef = "1E003175719918E41CA835CB";
+		};
+		D222E7DE6035E9284F9A27A2 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "text.plist.xml";
+			path = "InfoNetwork.plist";
+			sourceTree = "<group>";
+		};
+		B335630551682C19A781AFEB = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "text";
+			path = "README.md";
+			sourceTree = "<group>";
+		};
+		C05619C1626980999DABA416 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "archive.ar";
+			path = "vendor/MacKernelSDK/Library/x86_64/libkmod.a";
+			sourceTree = "<group>";
+		};
+		C2B32B7BDFB8B1220A7786A9 = {
+			isa = "PBXBuildFile";
+			fileRef = "C05619C1626980999DABA416";
+		};
+		A8792157CB4F27FB949C035F = {
+			isa = "PBXFileReference";
+			explicitFileType = "wrapper.kext";
+			path = "RT3090Network.kext";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		0A3E27B8CA818264D75C8D81 = {
+			isa = "PBXGroup";
+			children = ("A8792157CB4F27FB949C035F",);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		0D6E4079E36703EBD37C0072 = {
+			isa = "PBXGroup";
+			children = ("6C0E97FFF80499D021D899BD", "B449ABE52ACE1C9440CC4C23", "57FDE5F997FE6CD38C144D47", "CC1E5344AA871F90260813DB", "54F64B2BFE9384C45F7F87DC", "83193BB8278807D57120EE13", "7ECBC1CDA338C048548110C8", "5EC682E50357CC5E709D1406", "5EEE49F2282309353BC4CF03", "FAADCCAD256AA374058B2846", "CEF82C710E292B0A43E27B01", "2ACB90A1CA7CE172D78D361B", "9C58E01067D7B80253E248C5", "884BD186FBF5424D9368521A", "6F054A824B24A6904EA37792", "33467AF33345FB4115C76F9F", "F8205CB10CDA0211E6E82D05", "CAE5ED3955B08A0ADC73D8F7", "6E899E9A19A38357C4ED6B01", "94577A96B48C244105EAAEE1", "3FE2C0E85C268F7D966812CA", "75C2BB6B98BE6F87FCEC86A3", "1C065AB083F4B59B98793129", "6D22F47A0C1F04D112746482", "558529715CABFD60DC6C0134", "322EE1416547FDB215E100E5", "BBB177F3F4982FFED11652E6", "92E9A0286795631AFF60E8DD", "2FB68A0C07F3259C34455ABC", "6440FBBC5A82CB38EE8487AD", "60804C7444E9A4A4C33A424D", "132FB4A38A7612253963A680", "F76E8557E6F9FF2C9B5DBB2F", "2AB9786279D3354FFC2AC0EA", "3B24FCCDCF957FCD3AF30EF7", "2C98D337F7578FEBCE6004BA", "BCA781C6FA2315FD515641E1", "51BC516621008147336C6C61", "0309E73F0D048BBAB3F1B2FA", "8A7B65ED7553E5981916F039", "E235992772B58B8939EBDE0D", "B2BA514D6449081740C9D33D", "81C03D5001D875972ACC2F89", "4C3F8356B5CB6C4A6CF93A4C", "2256E839AAC67EEDBD36B243", "C478B2A2BCAFD9A855622661", "FC707D1D2AB15F26A57F2D8F", "65714E54220F79EF94D0FCE1", "B2E48D5E143A1E435070AD81", "1E003175719918E41CA835CB", "D222E7DE6035E9284F9A27A2", "B335630551682C19A781AFEB", "C05619C1626980999DABA416", "0A3E27B8CA818264D75C8D81",);
+			sourceTree = "<group>";
+		};
+		878A52FC5FF6A57D50B7B870 = {
+			isa = "PBXSourcesBuildPhase";
+			buildActionMask = "2147483647";
+			files = ("4D93952C4B006A4B249BC891", "4E7BBEEC1EA7A3EC106D58AD", "7E8F0E4D0C1B129E5709E700", "65F3B62CEDEBC990C7E4B045", "F4076D2C1AC3AF6B8E9F6E34", "6AA9AA4EE6C1362FEF7431FD", "EB81479D41058B17FE03E771", "E53B5C60B323403CC9855EF2", "2E0F741E2638042530CCF70D", "6542ADEF79C78C479C3E78DE", "9C04C68764EAA059263E226E", "095EB49960E6FA9D821AF94C", "76B778D3C16C8145AC04B9E6", "D5665CBE8876C9FFE70E8EEA", "974432DA5765336D8930365D", "BC26EA3E41509909F7D133FC", "C3615A53965D0B6FB5E0693E", "7F11591E6980961AB06AAF1F", "1BC594439E8B86A835789FCF", "30D3A22779E8C97A50A5D7C3", "226CEB835DA66B9E57E051B7", "ACEE4230C8DBBEFC75E1ECD1", "2CA421EBE76BEF5BEA45BEA4", "7D1636D8A277BDCF5F896AA3", "F696A2883275BEAE7B669EC3", "67EE1916CB18BFC8FF749D7A", "5B73FE2D1AC6BD2F8D14A01C", "BFD3E79E6FE1757FDD18B8D4", "433331C9A99AE80B350459C1", "D3FC10058505E07E9AAA00FC", "9D14CC8EE24EA6E180055007", "6C682AE6E8AD6B37B4326805", "D2E61D8F14A191A8EF414902", "559B1FB1FD81EE484CF4F012", "8D0B94D18D75591530B0CBAF", "DCF55482C310EC8141767296", "5F702B3E4B60C9C8F94E7B5C", "DC3459BFA22F6571EFF85668", "C363F7F1AC80836F57A0666C", "65676E56EAD572CE9842894B", "72968BC9A5E8BA2DF0A3D202", "93B267C133A2EA0C1ECEBC31", "45215EB68A8AE871A72CA6DA", "E24658CC92482BF10F85C410", "9299C2D7EAA81304FCA5A115", "CFE51C88882C6A7EFC595F08", "41B1F24EDB4E3366BEEA97FC", "896C10AE00524E03C6E12315", "99C0274784267A9DA6613729", "B53AF23A6F4ECFDD01E38241",);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		E2AA269EB967A8853A258BFA = {
+			isa = "PBXFrameworksBuildPhase";
+			buildActionMask = "2147483647";
+			files = ("C2B32B7BDFB8B1220A7786A9",);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		41D311A605520FC7B8B9A980 = {
+			isa = "PBXResourcesBuildPhase";
+			buildActionMask = "2147483647";
+			files = ();
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		FC172C57044C435BE22E1E1F = {
+			isa = "PBXShellScriptBuildPhase";
+			buildActionMask = "2147483647";
+			files = ();
+			inputPaths = ();
+			outputPaths = ();
+			runOnlyForDeploymentPostprocessing = "0";
+			shellPath = "/bin/sh";
+			shellScript = "set -eu\ncd \"$PROJECT_DIR\"\nif [ ! -f build/generated/FirmwareData.h ]; then\n python3 scripts/prepare_firmware.py --output build/generated/FirmwareData.h\nfi\n";
+			alwaysOutOfDate = "1";
+		};
+		20D16222A5CB9C5786FEB6B3 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				RT3090_NETWORK_ENABLED = "1";
+				ARCHS = "x86_64";
+				SDKROOT = "macosx10.13";
+				MACOSX_DEPLOYMENT_TARGET = "10.13";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "";
+				CLANG_ENABLE_MODULES = "NO";
+				GCC_C_LANGUAGE_STANDARD = "c99";
+				GCC_ENABLE_KERNEL_DEVELOPMENT = "YES";
+				GCC_ENABLE_CPP_EXCEPTIONS = "NO";
+				GCC_ENABLE_CPP_RTTI = "NO";
+				GCC_ENABLE_BUILTIN_FUNCTIONS = "NO";
+				GCC_PREPROCESSOR_DEFINITIONS = ("$(inherited)", "KERNEL=1", "KERNEL_PRIVATE=1", "DRIVER_PRIVATE=1", "IEEE80211_STA_ONLY=1", "_FORTIFY_SOURCE=0", "RT3090_ENABLE_NETWORK_EXPERIMENT=$(RT3090_NETWORK_ENABLED)",);
+				GCC_OPTIMIZATION_LEVEL = "0";
+				GCC_WARN_ABOUT_RETURN_TYPE = "YES_ERROR";
+				HEADER_SEARCH_PATHS = ("$(PROJECT_DIR)/include", "$(PROJECT_DIR)/port", "$(PROJECT_DIR)/vendor/itl80211/openbsd", "$(PROJECT_DIR)/vendor/itl80211", "$(PROJECT_DIR)/vendor/itl80211/linux", "$(PROJECT_DIR)/build/generated", "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers",);
+				KERNEL_EXTENSION_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers";
+				KERNEL_FRAMEWORK_HEADERS = "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers";
+				LIBRARY_SEARCH_PATHS = ("$(PROJECT_DIR)/vendor/MacKernelSDK/Library/x86_64",);
+				INFOPLIST_FILE = "InfoNetwork.plist";
+				PRODUCT_NAME = "RT3090Network";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.rt3090.network";
+				MODULE_NAME = "org.rt3090.network";
+				MODULE_VERSION = "0.3.4";
+				WRAPPER_EXTENSION = "kext";
+				CODE_SIGNING_ALLOWED = "NO";
+				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf";
+				OTHER_CFLAGS = ("$(inherited)", "-fno-stack-protector",);
+				OTHER_CPLUSPLUSFLAGS = ("$(inherited)", "-fno-stack-protector", "-include", "$(PROJECT_DIR)/port/RTBSDPrefix.hpp", "-mno-red-zone", "-mno-sse", "-mno-sse2", "-mno-mmx",);
+				ONLY_ACTIVE_ARCH = "NO";
+				SKIP_INSTALL = "YES";
+			};
+			name = "Debug";
+		};
+		7607E060366236497909AD63 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+			};
+			name = "Debug";
+		};
+		A74CFA757CE7CA1700BC6197 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				RT3090_NETWORK_ENABLED = "1";
+				ARCHS = "x86_64";
+				SDKROOT = "macosx10.13";
+				MACOSX_DEPLOYMENT_TARGET = "10.13";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "";
+				CLANG_ENABLE_MODULES = "NO";
+				GCC_C_LANGUAGE_STANDARD = "c99";
+				GCC_ENABLE_KERNEL_DEVELOPMENT = "YES";
+				GCC_ENABLE_CPP_EXCEPTIONS = "NO";
+				GCC_ENABLE_CPP_RTTI = "NO";
+				GCC_ENABLE_BUILTIN_FUNCTIONS = "NO";
+				GCC_PREPROCESSOR_DEFINITIONS = ("$(inherited)", "KERNEL=1", "KERNEL_PRIVATE=1", "DRIVER_PRIVATE=1", "IEEE80211_STA_ONLY=1", "_FORTIFY_SOURCE=0", "RT3090_ENABLE_NETWORK_EXPERIMENT=$(RT3090_NETWORK_ENABLED)",);
+				GCC_OPTIMIZATION_LEVEL = "2";
+				GCC_WARN_ABOUT_RETURN_TYPE = "YES_ERROR";
+				HEADER_SEARCH_PATHS = ("$(PROJECT_DIR)/include", "$(PROJECT_DIR)/port", "$(PROJECT_DIR)/vendor/itl80211/openbsd", "$(PROJECT_DIR)/vendor/itl80211", "$(PROJECT_DIR)/vendor/itl80211/linux", "$(PROJECT_DIR)/build/generated", "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers",);
+				KERNEL_EXTENSION_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers";
+				KERNEL_FRAMEWORK_HEADERS = "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers";
+				LIBRARY_SEARCH_PATHS = ("$(PROJECT_DIR)/vendor/MacKernelSDK/Library/x86_64",);
+				INFOPLIST_FILE = "InfoNetwork.plist";
+				PRODUCT_NAME = "RT3090Network";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.rt3090.network";
+				MODULE_NAME = "org.rt3090.network";
+				MODULE_VERSION = "0.3.4";
+				WRAPPER_EXTENSION = "kext";
+				CODE_SIGNING_ALLOWED = "NO";
+				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf";
+				OTHER_CFLAGS = ("$(inherited)", "-fno-stack-protector",);
+				OTHER_CPLUSPLUSFLAGS = ("$(inherited)", "-fno-stack-protector", "-include", "$(PROJECT_DIR)/port/RTBSDPrefix.hpp", "-mno-red-zone", "-mno-sse", "-mno-sse2", "-mno-mmx",);
+				ONLY_ACTIVE_ARCH = "NO";
+				SKIP_INSTALL = "YES";
+			};
+			name = "Release";
+		};
+		0CC31A010A9EAFED2597BEBC = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+			};
+			name = "Release";
+		};
+		78F249D9140B5D7B47DA2B7D = {
+			isa = "XCConfigurationList";
+			buildConfigurations = ("20D16222A5CB9C5786FEB6B3", "A74CFA757CE7CA1700BC6197",);
+			defaultConfigurationIsVisible = "0";
+			defaultConfigurationName = "Debug";
+		};
+		DF10D92617D0252A0BF9C919 = {
+			isa = "XCConfigurationList";
+			buildConfigurations = ("7607E060366236497909AD63", "0CC31A010A9EAFED2597BEBC",);
+			defaultConfigurationIsVisible = "0";
+			defaultConfigurationName = "Debug";
+		};
+		34A04005BCAF206EEC990BD9 = {
+			isa = "PBXNativeTarget";
+			buildConfigurationList = "78F249D9140B5D7B47DA2B7D";
+			buildPhases = ("FC172C57044C435BE22E1E1F", "878A52FC5FF6A57D50B7B870", "E2AA269EB967A8853A258BFA", "41D311A605520FC7B8B9A980",);
+			buildRules = ();
+			dependencies = ();
+			name = "RT3090Network";
+			productName = "RT3090Network";
+			productReference = "A8792157CB4F27FB949C035F";
+			productType = "com.apple.product-type.kernel-extension";
+		};
+		244210E48437B6556980A702 = {
+			isa = "PBXProject";
+			attributes = {
+				LastUpgradeCheck = "0940";
+			};
+			buildConfigurationList = "DF10D92617D0252A0BF9C919";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = "en";
+			hasScannedForEncodings = "0";
+			knownRegions = ("en",);
+			mainGroup = "0D6E4079E36703EBD37C0072";
+			productRefGroup = "0A3E27B8CA818264D75C8D81";
+			projectDirPath = "";
+			projectRoot = "";
+			targets = ("34A04005BCAF206EEC990BD9",);
+		};
+	};
+	rootObject = "244210E48437B6556980A702";
+}

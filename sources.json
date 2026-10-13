@@ -1,0 +1,66 @@
+[
+  {
+    "name": "linux",
+    "url": "https://github.com/torvalds/linux",
+    "commit": "d6d3455d8751854e0d1820f14184682e23ac4475"
+  },
+  {
+    "name": "itlwm",
+    "url": "https://github.com/OpenIntelWireless/itlwm",
+    "commit": "53c51c2cdd6e4b69beb91f310d74c53422b0f8bd"
+  },
+  {
+    "name": "MacKernelSDK",
+    "url": "https://github.com/acidanthera/MacKernelSDK",
+    "commit": "3f750085caa17ec3a7880f11c11bf4f48cd6a164"
+  },
+  {
+    "name": "IONetworkingFamily",
+    "url": "https://github.com/Apple-OSS-Distributions/IONetworkingFamily",
+    "commit": "bb910e2b458939f6b1f53c0fa6907f258b431ea4"
+  },
+  {
+    "name": "RalinkUtility",
+    "url": "https://github.com/chris1111/Wireless-Ralink-Panel-Utility",
+    "commit": "aa7e4d91f326b85a651b79ab564d4dd9fbaa2f11"
+  },
+  {
+    "name": "VoodooWireless",
+    "url": "https://github.com/mercurysquad/VoodooWireless",
+    "commit": "b7776825367fd0517dc3bfd663b87d5c0dc25929"
+  },
+  {
+    "name": "linux-firmware",
+    "url": "https://github.com/wkennington/linux-firmware",
+    "commit": "711d3297bac870af42088a467459a0634c1970ca"
+  },
+  {
+    "name": "IONetworkingFamily inspected historical tag",
+    "url": "https://github.com/Apple-OSS-Distributions/IONetworkingFamily",
+    "ref": "IONetworkingFamily-139.60.1",
+    "commit": "5b404c76a7bb56e06eb6e0a994649ba1941424de"
+  },
+  {
+    "name": "cctools-port ld64 build",
+    "url": "https://github.com/tpoechtrager/cctools-port",
+    "ref": "921-ld64-409.12",
+    "commit": "490466d7e5adb50006948d753400e2023dbc323d"
+  },
+  {
+    "name": "OpenBSD RT2860 backend",
+    "url": "https://github.com/openbsd/src",
+    "commit": "c55bba37ad977e1435ddbb28e22823787075a754"
+  },
+  {
+    "name": "High Sierra XNU export audit",
+    "url": "https://github.com/apple-oss-distributions/xnu",
+    "ref": "xnu-4570.71.2",
+    "commit": "925687e1592f2ca08052622e35d1f61df4ad3c85"
+  },
+  {
+    "name": "PCI match implementation inspection",
+    "url": "https://github.com/apple-oss-distributions/IOPCIFamily",
+    "ref": "IOPCIFamily-320.1.1",
+    "commit": "1203e16d95f0e61f8e60270559ca3300593ac349"
+  }
+]

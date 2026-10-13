@@ -1,0 +1,41 @@
+{
+  "date_client": "2026-10-12",
+  "workflow": "partial RT3090 hardware port; no working Wi-Fi",
+  "host_tests_with_firmware": {
+    "assertions_passed": 92,
+    "malformed_frames_exercised": 5000,
+    "sanitizers": [
+      "ASan",
+      "UBSan"
+    ],
+    "hardware": "simulated"
+  },
+  "host_tests_without_firmware": {
+    "assertions_passed": 87
+  },
+  "cross_compile": {
+    "target": "x86_64-macos.10.13",
+    "compiler": "Zig 0.13.0 / Clang",
+    "outputs": "Mach-O object files",
+    "firmware_enabled": "passed",
+    "firmware_disabled": "passed"
+  },
+  "project_structure": "passed; not an Xcode build",
+  "native_xcode_build": "unrun: no Mac/Xcode",
+  "hardware_tests": "unrun",
+  "scanning_association_wpa2": "not implemented",
+  "linked_kext_delivered": true,
+  "kext_cross_link": {
+    "status": "passed",
+    "linker": "cctools-port ld64-409.12",
+    "file_type": "MH_KEXT_BUNDLE",
+    "architecture": "x86_64",
+    "kmod_metadata": "passed",
+    "constructor_destructor_sections": "passed",
+    "userland_runtime_import_check": "passed",
+    "firmware_included": false,
+    "binary_size": 74384
+  },
+  "kext_macos_load": "unrun: no macOS system",
+  "optional_machocheck": "unsupported for MH_KEXT_BUNDLE in inspected tool source; not a validation pass"
+}

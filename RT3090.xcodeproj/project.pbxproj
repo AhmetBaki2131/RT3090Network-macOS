@@ -1,0 +1,235 @@
+// !$*UTF8*$!
+{
+	archiveVersion = "1";
+	classes = {
+	};
+	objectVersion = "46";
+	objects = {
+		1E003175719918E41CA835CB = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.c.c";
+			path = "src/rt3090_core.c";
+			sourceTree = "<group>";
+		};
+		B53AF23A6F4ECFDD01E38241 = {
+			isa = "PBXBuildFile";
+			fileRef = "1E003175719918E41CA835CB";
+		};
+		FA461EA3F3118D3D2DA1814B = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+			path = "kext/RT3090Diagnostic.cpp";
+			sourceTree = "<group>";
+		};
+		662CDB7BA6BB989AC3A76234 = {
+			isa = "PBXBuildFile";
+			fileRef = "FA461EA3F3118D3D2DA1814B";
+		};
+		1C408C863B0EA3BF39F2B6C9 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.c.h";
+			path = "include/rt3090_core.h";
+			sourceTree = "<group>";
+		};
+		B6DB0167C8EABCCB4245C364 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.cpp.h";
+			path = "kext/RT3090Diagnostic.hpp";
+			sourceTree = "<group>";
+		};
+		9AC3B5AD93CBC0305C62F78F = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "text.plist.xml";
+			path = "Info.plist";
+			sourceTree = "<group>";
+		};
+		B335630551682C19A781AFEB = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "net.daringfireball.markdown";
+			path = "README.md";
+			sourceTree = "<group>";
+		};
+		C05619C1626980999DABA416 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "archive.ar";
+			path = "vendor/MacKernelSDK/Library/x86_64/libkmod.a";
+			sourceTree = "<group>";
+		};
+		C2B32B7BDFB8B1220A7786A9 = {
+			isa = "PBXBuildFile";
+			fileRef = "C05619C1626980999DABA416";
+		};
+		A8792157CB4F27FB949C035F = {
+			isa = "PBXFileReference";
+			explicitFileType = "wrapper.kext";
+			path = "RT3090Diagnostic.kext";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		0A3E27B8CA818264D75C8D81 = {
+			isa = "PBXGroup";
+			children = ("A8792157CB4F27FB949C035F",);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		0D6E4079E36703EBD37C0072 = {
+			isa = "PBXGroup";
+			children = ("1E003175719918E41CA835CB", "FA461EA3F3118D3D2DA1814B", "1C408C863B0EA3BF39F2B6C9", "B6DB0167C8EABCCB4245C364", "9AC3B5AD93CBC0305C62F78F", "B335630551682C19A781AFEB", "C05619C1626980999DABA416", "0A3E27B8CA818264D75C8D81",);
+			sourceTree = "<group>";
+		};
+		878A52FC5FF6A57D50B7B870 = {
+			isa = "PBXSourcesBuildPhase";
+			buildActionMask = "2147483647";
+			files = ("B53AF23A6F4ECFDD01E38241", "662CDB7BA6BB989AC3A76234",);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		E2AA269EB967A8853A258BFA = {
+			isa = "PBXFrameworksBuildPhase";
+			buildActionMask = "2147483647";
+			files = ("C2B32B7BDFB8B1220A7786A9",);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		41D311A605520FC7B8B9A980 = {
+			isa = "PBXResourcesBuildPhase";
+			buildActionMask = "2147483647";
+			files = ();
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		FC172C57044C435BE22E1E1F = {
+			isa = "PBXShellScriptBuildPhase";
+			buildActionMask = "2147483647";
+			files = ();
+			inputPaths = ();
+			outputPaths = ();
+			runOnlyForDeploymentPostprocessing = "0";
+			shellPath = "/bin/sh";
+			shellScript = "set -eu\ncd \"$PROJECT_DIR\"\nif [ ! -f build/generated/FirmwareData.h ]; then\n python3 scripts/prepare_firmware.py --output build/generated/FirmwareData.h\nfi\n";
+			alwaysOutOfDate = "1";
+		};
+		20D16222A5CB9C5786FEB6B3 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				ARCHS = "x86_64";
+				SDKROOT = "macosx";
+				MACOSX_DEPLOYMENT_TARGET = "10.13";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
+				CLANG_CXX_LIBRARY = "";
+				CLANG_ENABLE_MODULES = "NO";
+				GCC_C_LANGUAGE_STANDARD = "c99";
+				GCC_ENABLE_KERNEL_DEVELOPMENT = "YES";
+				GCC_ENABLE_CPP_EXCEPTIONS = "NO";
+				GCC_ENABLE_CPP_RTTI = "NO";
+				GCC_ENABLE_BUILTIN_FUNCTIONS = "NO";
+				GCC_PREPROCESSOR_DEFINITIONS = ("$(inherited)", "KERNEL=1", "KERNEL_PRIVATE=1", "DRIVER_PRIVATE=1",);
+				GCC_OPTIMIZATION_LEVEL = "0";
+				GCC_WARN_ABOUT_RETURN_TYPE = "YES_ERROR";
+				HEADER_SEARCH_PATHS = ("$(PROJECT_DIR)/include", "$(PROJECT_DIR)/kext", "$(PROJECT_DIR)/build/generated", "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers",);
+				KERNEL_EXTENSION_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers";
+				KERNEL_FRAMEWORK_HEADERS = "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers";
+				LIBRARY_SEARCH_PATHS = ("$(PROJECT_DIR)/vendor/MacKernelSDK/Library/x86_64",);
+				INFOPLIST_FILE = "Info.plist";
+				PRODUCT_NAME = "RT3090Diagnostic";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.rt3090.experimental";
+				MODULE_NAME = "org.rt3090.experimental";
+				MODULE_VERSION = "0.1.0";
+				WRAPPER_EXTENSION = "kext";
+				CODE_SIGNING_ALLOWED = "NO";
+				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf";
+				OTHER_CFLAGS = ("$(inherited)", "-fno-stack-protector",);
+				OTHER_CPLUSPLUSFLAGS = ("$(inherited)", "-fno-stack-protector",);
+				ONLY_ACTIVE_ARCH = "NO";
+				SKIP_INSTALL = "YES";
+			};
+			name = "Debug";
+		};
+		7607E060366236497909AD63 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+			};
+			name = "Debug";
+		};
+		A74CFA757CE7CA1700BC6197 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				ARCHS = "x86_64";
+				SDKROOT = "macosx";
+				MACOSX_DEPLOYMENT_TARGET = "10.13";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
+				CLANG_CXX_LIBRARY = "";
+				CLANG_ENABLE_MODULES = "NO";
+				GCC_C_LANGUAGE_STANDARD = "c99";
+				GCC_ENABLE_KERNEL_DEVELOPMENT = "YES";
+				GCC_ENABLE_CPP_EXCEPTIONS = "NO";
+				GCC_ENABLE_CPP_RTTI = "NO";
+				GCC_ENABLE_BUILTIN_FUNCTIONS = "NO";
+				GCC_PREPROCESSOR_DEFINITIONS = ("$(inherited)", "KERNEL=1", "KERNEL_PRIVATE=1", "DRIVER_PRIVATE=1",);
+				GCC_OPTIMIZATION_LEVEL = "2";
+				GCC_WARN_ABOUT_RETURN_TYPE = "YES_ERROR";
+				HEADER_SEARCH_PATHS = ("$(PROJECT_DIR)/include", "$(PROJECT_DIR)/kext", "$(PROJECT_DIR)/build/generated", "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers",);
+				KERNEL_EXTENSION_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers";
+				KERNEL_FRAMEWORK_HEADERS = "$(PROJECT_DIR)/vendor/MacKernelSDK/Headers";
+				LIBRARY_SEARCH_PATHS = ("$(PROJECT_DIR)/vendor/MacKernelSDK/Library/x86_64",);
+				INFOPLIST_FILE = "Info.plist";
+				PRODUCT_NAME = "RT3090Diagnostic";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.rt3090.experimental";
+				MODULE_NAME = "org.rt3090.experimental";
+				MODULE_VERSION = "0.1.0";
+				WRAPPER_EXTENSION = "kext";
+				CODE_SIGNING_ALLOWED = "NO";
+				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf";
+				OTHER_CFLAGS = ("$(inherited)", "-fno-stack-protector",);
+				OTHER_CPLUSPLUSFLAGS = ("$(inherited)", "-fno-stack-protector",);
+				ONLY_ACTIVE_ARCH = "NO";
+				SKIP_INSTALL = "YES";
+			};
+			name = "Release";
+		};
+		0CC31A010A9EAFED2597BEBC = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+			};
+			name = "Release";
+		};
+		78F249D9140B5D7B47DA2B7D = {
+			isa = "XCConfigurationList";
+			buildConfigurations = ("20D16222A5CB9C5786FEB6B3", "A74CFA757CE7CA1700BC6197",);
+			defaultConfigurationIsVisible = "0";
+			defaultConfigurationName = "Debug";
+		};
+		DF10D92617D0252A0BF9C919 = {
+			isa = "XCConfigurationList";
+			buildConfigurations = ("7607E060366236497909AD63", "0CC31A010A9EAFED2597BEBC",);
+			defaultConfigurationIsVisible = "0";
+			defaultConfigurationName = "Debug";
+		};
+		34A04005BCAF206EEC990BD9 = {
+			isa = "PBXNativeTarget";
+			buildConfigurationList = "78F249D9140B5D7B47DA2B7D";
+			buildPhases = ("FC172C57044C435BE22E1E1F", "878A52FC5FF6A57D50B7B870", "E2AA269EB967A8853A258BFA", "41D311A605520FC7B8B9A980",);
+			buildRules = ();
+			dependencies = ();
+			name = "RT3090Diagnostic";
+			productName = "RT3090Diagnostic";
+			productReference = "A8792157CB4F27FB949C035F";
+			productType = "com.apple.product-type.kernel-extension";
+		};
+		244210E48437B6556980A702 = {
+			isa = "PBXProject";
+			attributes = {
+				LastUpgradeCheck = "0940";
+			};
+			buildConfigurationList = "DF10D92617D0252A0BF9C919";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = "en";
+			hasScannedForEncodings = "0";
+			knownRegions = ("en",);
+			mainGroup = "0D6E4079E36703EBD37C0072";
+			productRefGroup = "0A3E27B8CA818264D75C8D81";
+			projectDirPath = "";
+			projectRoot = "";
+			targets = ("34A04005BCAF206EEC990BD9",);
+		};
+	};
+	rootObject = "244210E48437B6556980A702";
+}
