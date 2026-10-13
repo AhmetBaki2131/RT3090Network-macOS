@@ -1,0 +1,14 @@
+[
+  {
+    "file": "RT3090Network-test.zip",
+    "bytes": 478625,
+    "sha256": "0f0316d7f62d0aefc9200c4631557e33a2ab79eb073124ae1879894ecc956dee",
+    "zip_crc": "PASS"
+  },
+  {
+    "file": "RT3090Network-source.zip",
+    "bytes": 5168285,
+    "sha256": "621f86735c38c5937a116a44f7be4822a30fdae461b3e5d3297613b5677a547c",
+    "zip_crc": "PASS"
+  }
+]
