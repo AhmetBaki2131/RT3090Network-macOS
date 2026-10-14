@@ -1,5 +1,17 @@
 # RT3090Network — Ralink RT3090 macOS portu
 
+## Güncel kaynak: 0.3.5
+
+Başlangıçtaki `MCU completion timeout cmd=48` hatasında WAKEUP komutunun atlanması düzeltildi. Yalnızca ilk SLEEP completion zaman aşımı kurtarılabilir; WAKEUP onayı zorunludur. MMIO/DMA ve diğer MCU hataları durdurucu kalır. [Başlangıç ve derleme](docs/START-HERE-0.3.5.md) · [Değişiklik ve doğrulama sınırları](docs/MCU-FIX-0.3.5.md).
+
+```bash
+sh scripts/build-test-package-macos.sh
+```
+
+Hedef: HP Pavilion dv6, RT3090 1814:3090 / 103c:1453, macOS High Sierra 10.13.6 x86_64, Xcode 9.4.1 + MacOSX10.13.sdk ve Python 3. Bu komut yükleme yapmadan yeni kext ve kontrol uygulamasını paketler. 0.3.5 için hazır/yüklenebilir binary bu Windows ortamında üretilemedi; 49 kaynak biriminin çapraz derlemesi ve host testleri ayrı raporlanır. Gerçek kartta tarama/WPA2/DHCP ve önceki Connect donmasının giderildiği doğrulanmadı.
+
+## Önceki 0.3.4 paketinin açıklaması
+
 **Durum: 0.3.4 deneysel sürüm.** [Kext ve kontrol uygulamasını indir](releases/0.3.4/RT3090Network-test.zip) · [Kaynak ZIP](releases/0.3.4/RT3090Network-source.zip) · [Test ve geri alma](releases/0.3.4/NETWORK-TEST.md).
 
 Bu depo, HP Pavilion dv6 kartı için macOS High Sierra portunun kaynak ağacıdır. GitHub depo adı eski `Offline-Games` adıdır; GitHub API erişimi olmadığı için uzaktan yeniden adlandırılmadı.

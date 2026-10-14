@@ -599,7 +599,7 @@
 				PRODUCT_NAME = "RT3090Network";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.rt3090.network";
 				MODULE_NAME = "org.rt3090.network";
-				MODULE_VERSION = "0.3.4";
+				MODULE_VERSION = "0.3.5";
 				WRAPPER_EXTENSION = "kext";
 				CODE_SIGNING_ALLOWED = "NO";
 				CODE_SIGN_IDENTITY = "";
@@ -643,7 +643,7 @@
 				PRODUCT_NAME = "RT3090Network";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.rt3090.network";
 				MODULE_NAME = "org.rt3090.network";
-				MODULE_VERSION = "0.3.4";
+				MODULE_VERSION = "0.3.5";
 				WRAPPER_EXTENSION = "kext";
 				CODE_SIGNING_ALLOWED = "NO";
 				CODE_SIGN_IDENTITY = "";

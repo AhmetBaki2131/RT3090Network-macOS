@@ -61,7 +61,7 @@ def main():
             KERNEL_FRAMEWORK_HEADERS="$(PROJECT_DIR)/vendor/MacKernelSDK/Headers",
             LIBRARY_SEARCH_PATHS=["$(PROJECT_DIR)/vendor/MacKernelSDK/Library/x86_64"],
             INFOPLIST_FILE="InfoNetwork.plist", PRODUCT_NAME="RT3090Network", PRODUCT_BUNDLE_IDENTIFIER="org.rt3090.network",
-            MODULE_NAME="org.rt3090.network", MODULE_VERSION="0.3.4", WRAPPER_EXTENSION="kext",
+            MODULE_NAME="org.rt3090.network", MODULE_VERSION="0.3.5", WRAPPER_EXTENSION="kext",
             CODE_SIGNING_ALLOWED="NO", CODE_SIGN_IDENTITY="", DEBUG_INFORMATION_FORMAT="dwarf",
             OTHER_CFLAGS=["$(inherited)", "-fno-stack-protector"], OTHER_CPLUSPLUSFLAGS=["$(inherited)", "-fno-stack-protector", "-include", "$(PROJECT_DIR)/port/RTBSDPrefix.hpp", "-mno-red-zone", "-mno-sse", "-mno-sse2", "-mno-mmx"],
             ONLY_ACTIVE_ARCH="NO", SKIP_INSTALL="YES")

@@ -12,7 +12,7 @@ import os,sys,shutil,pathlib
 name=sys.argv[1];args=sys.argv[2:]
 with open(os.environ['TRACE'],'a') as f:f.write(name+' '+ ' '.join(args)+'\\n')
 if name=='id':print('0')
-elif name=='PlistBuddy':print('org.rt3090.network' if 'CFBundleIdentifier' in args[1] else '0.3.4')
+elif name=='PlistBuddy':print('org.rt3090.network' if 'CFBundleIdentifier' in args[1] else '0.3.5')
 elif name=='kextstat':
  print('Index Refs Address Size Wired Name (Version)')
  if os.environ.get('LOADED')=='1':print('69 0 0x1 0x2 0x2 org.rt3090.network (0.3.3)')

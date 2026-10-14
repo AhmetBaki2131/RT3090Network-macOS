@@ -2138,16 +2138,19 @@ rt3090_rf_write(struct rt2860_softc *sc, uint8_t reg, uint8_t val)
 /*
  * Send a command to the 8051 microcontroller unit.
  */
-int
-rt2860_mcu_cmd(struct rt2860_softc *sc, uint8_t cmd, uint16_t arg, int wait)
+static int
+rt2860_mcu_cmd_impl(struct rt2860_softc *sc, uint8_t cmd, uint16_t arg,
+    int wait, bool initial_sleep)
 {
 	int slot, ntries;
-	uint32_t tmp;
+	uint32_t tmp, completion = 0, status;
 	uint8_t cid;
-    if (sc->io_failed) return EIO;
+    if (sc->io_failed || rtbsd_dma_failed()) { sc->io_failed = true; return EIO; }
 
 	for (ntries = 0; ntries < 100; ntries++) {
-		if (!(RAL_READ(sc, RT2860_H2M_MAILBOX) & RT2860_H2M_BUSY))
+		tmp = RAL_READ(sc, RT2860_H2M_MAILBOX);
+		if (rtbsd_dma_failed() || tmp == 0xffffffff) { sc->io_failed = true; return EIO; }
+		if (!(tmp & RT2860_H2M_BUSY))
 			break;
 		DELAY(2);
 	}
@@ -2157,12 +2160,15 @@ rt2860_mcu_cmd(struct rt2860_softc *sc, uint8_t cmd, uint16_t arg, int wait)
 	RAL_WRITE(sc, RT2860_H2M_MAILBOX, RT2860_H2M_BUSY | cid << 16 | arg);
 	RAL_BARRIER_WRITE(sc);
 	RAL_WRITE(sc, RT2860_HOST_CMD, cmd);
+	RAL_BARRIER_WRITE(sc);
+	if (rtbsd_dma_failed()) { sc->io_failed = true; return EIO; }
 
 	if (!wait)
 		return 0;
 	/* wait for the command to complete */
 	for (ntries = 0; ntries < 200; ntries++) {
-		tmp = RAL_READ(sc, RT2860_H2M_MAILBOX_CID);
+		completion = tmp = RAL_READ(sc, RT2860_H2M_MAILBOX_CID);
+		if (rtbsd_dma_failed()) { sc->io_failed = true; return EIO; }
 		/* find the command slot */
 		for (slot = 0; slot < 4; slot++, tmp >>= 8)
 			if ((tmp & 0xff) == cid)
@@ -2172,11 +2178,19 @@ rt2860_mcu_cmd(struct rt2860_softc *sc, uint8_t cmd, uint16_t arg, int wait)
 		DELAY(100);
 	}
 	if (ntries == 200) {
+		status = RAL_READ(sc, RT2860_H2M_MAILBOX_STATUS);
 		/* clear command and status */
 		RAL_WRITE(sc, RT2860_H2M_MAILBOX_STATUS, 0xffffffff);
 		RAL_WRITE(sc, RT2860_H2M_MAILBOX_CID, 0xffffffff);
-		sc->io_failed=true;
-        IOLog("RT3090: MCU completion timeout cmd=%u\n",cmd);
+		RAL_BARRIER_WRITE(sc);
+		if (rtbsd_dma_failed()) { sc->io_failed = true; return EIO; }
+		IOLog("RT3090: MCU completion timeout cmd=%u token=%u cid=0x%08x status=0x%08x\n",
+		    cmd, cid, completion, status);
+		/* Firmware may sleep before posting its acknowledgement. Only the
+		 * initial SLEEP/WAKEUP pair can recover this completion timeout.
+		 * Never clear an existing MMIO/DMA or command-status fault. */
+		if (!(initial_sleep && cmd == RT2860_MCU_CMD_SLEEP && wait))
+			sc->io_failed = true;
 		return ETIMEDOUT;
 	}
 	/* get command status (1 means success) */
@@ -2187,8 +2201,32 @@ rt2860_mcu_cmd(struct rt2860_softc *sc, uint8_t cmd, uint16_t arg, int wait)
 	/* clear command and status */
 	RAL_WRITE(sc, RT2860_H2M_MAILBOX_STATUS, 0xffffffff);
 	RAL_WRITE(sc, RT2860_H2M_MAILBOX_CID, 0xffffffff);
-	if (tmp != 1) { sc->io_failed=true; return EIO; }
+	RAL_BARRIER_WRITE(sc);
+	if (rtbsd_dma_failed() || tmp != 1) {
+		sc->io_failed = true;
+		IOLog("RT3090: MCU failed cmd=%u token=%u slot=%d status=0x%02x\n", cmd, cid, slot, tmp);
+		return EIO;
+	}
     return 0;
+}
+
+int
+rt2860_mcu_cmd(struct rt2860_softc *sc, uint8_t cmd, uint16_t arg, int wait)
+{
+	return rt2860_mcu_cmd_impl(sc, cmd, arg, wait, false);
+}
+
+static int
+rt2860_mcu_init_wakeup(struct rt2860_softc *sc)
+{
+	int error = rt2860_mcu_cmd_impl(sc, RT2860_MCU_CMD_SLEEP, 0x02ff, 1, true);
+	if (sc->io_failed || rtbsd_dma_failed()) return EIO;
+	if (error != 0 && error != ETIMEDOUT) return error;
+	if (error == ETIMEDOUT)
+		IOLog("RT3090: initial SLEEP unacknowledged; attempting bounded WAKEUP\n");
+	error = rt2860_mcu_cmd(sc, RT2860_MCU_CMD_WAKEUP, 0, 1);
+	if (!error) IOLog("RT3090: initial MCU WAKEUP acknowledged\n");
+	return error;
 }
 
 void
@@ -4010,8 +4048,10 @@ rt2860_init(struct _ifnet *ifp)
 		if ((error = rt3090_rf_init(sc)) != 0) { rt2860_stop(ifp, 1); return error; }
 	}
 
-	if (rt2860_mcu_cmd(sc, RT2860_MCU_CMD_SLEEP, 0x02ff, 1) ||
-	    rt2860_mcu_cmd(sc, RT2860_MCU_CMD_WAKEUP, 0, 1)) { rt2860_stop(ifp, 1); return EIO; }
+	if ((error = rt2860_mcu_init_wakeup(sc)) != 0) {
+		rt2860_stop(ifp, 1);
+		return error;
+	}
 
 	if (sc->mac_ver == 0x3290 ||
 	    sc->mac_ver >= 0x5390)

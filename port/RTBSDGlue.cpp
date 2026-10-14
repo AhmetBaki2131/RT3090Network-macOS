@@ -10,12 +10,12 @@ void rtbsd_dma_clear_failure() { dma_failed=false; }
 
 uint32_t bus_space_read_4(bus_space_tag_t map,bus_space_handle_t base,bus_size_t off)
 {
-    if(!map||!base||(off&3)||off>map->getLength()||map->getLength()-off<4) return 0xffffffffu;
+    if(!map||!base||(off&3)||off>map->getLength()||map->getLength()-off<4) { dma_failed=true; return 0xffffffffu; }
     uint32_t value=OSReadLittleInt32(base,off); OSSynchronizeIO(); return value;
 }
 void bus_space_write_4(bus_space_tag_t map,bus_space_handle_t base,bus_size_t off,uint32_t value)
 {
-    if(!map||!base||(off&3)||off>map->getLength()||map->getLength()-off<4) return;
+    if(!map||!base||(off&3)||off>map->getLength()||map->getLength()-off<4 || map->getLength()<RT_MAC_CSR0+4) { dma_failed=true; return; }
     OSWriteLittleInt32(base,off,value); OSSynchronizeIO();
     (void)OSReadLittleInt32(base,RT_MAC_CSR0); OSSynchronizeIO();
 }
