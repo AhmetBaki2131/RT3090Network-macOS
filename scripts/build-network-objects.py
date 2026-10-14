@@ -34,9 +34,17 @@ sources = [source for source in sources if source != root/"vendor/itl80211/openb
            and source != root/"vendor/itl80211/openbsd/net80211/ieee80211_mira.c"]
 flags = ["-target", "x86_64-apple-macosx10.13", "-x", "c++", "-std=gnu++14", "-mkernel",
          "-fapple-kext", "-fno-exceptions", "-fno-rtti", "-fno-stack-protector", "-nostdinc",
-         "-fno-register-global-dtors-with-atexit", "-mllvm", "-disable-atexit-based-global-dtor-lowering",
+         "-fno-register-global-dtors-with-atexit",
          "-ffreestanding", "-fno-builtin", "-mno-red-zone", "-mno-sse", "-mno-sse2", "-mno-mmx",
          "-D_FORTIFY_SOURCE=0", "-DKERNEL", "-DKERNEL_PRIVATE", "-DDRIVER_PRIVATE", "-DIEEE80211_STA_ONLY", "-ferror-limit=0"]
+# New LLVM releases lower global dtors through atexit in an additional pass.
+# Older releases do not have that pass or its private option (e.g. Clang 14).
+dtor_flags = ["-mllvm", "-disable-atexit-based-global-dtor-lowering"]
+probe = subprocess.run([args.compiler, "-target", "x86_64-apple-macosx10.13",
+                        "-x", "c++", "-c", "-o", os.devnull, "-"] + dtor_flags,
+                       input="", capture_output=True, text=True)
+if probe.returncode == 0:
+    flags += dtor_flags
 for include in ["port", "include", "build/generated", "vendor/itl80211/openbsd", "vendor/itl80211", "vendor/itl80211/linux", "vendor/MacKernelSDK/Headers"]:
     flags += ["-I" + str(root / include)]
 flags += ["-include", str(root / "port/RTBSDPrefix.hpp")]
@@ -51,6 +59,8 @@ def compile_one(source):
     result = subprocess.run([args.compiler] + flags + ["-c", str(source), "-o", str(target)], capture_output=True, text=True)
     (out / (stem + ".log")).write_text(result.stdout + result.stderr)
     errors = [line for line in result.stderr.splitlines() if "error:" in line]
+    if result.returncode and not errors:
+        errors = result.stderr.splitlines()[:4]
     return dict(source=source.relative_to(root).as_posix(), exit_code=result.returncode, errors=errors)
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:

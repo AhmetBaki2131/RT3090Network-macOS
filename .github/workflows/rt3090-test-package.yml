@@ -60,5 +60,6 @@ jobs:
             build/*-ci.log
             build/*-ci.json
             build/network/compile-results.json
+            build/network/*.log
             build/network/network-structure.json
           if-no-files-found: error
