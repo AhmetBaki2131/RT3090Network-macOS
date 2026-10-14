@@ -2,7 +2,6 @@ name: RT3090 host tests and experimental kext
 on:
   push:
     branches: ['codex/rt3090-0.3.5-mcu-wakeup']
-  pull_request:
   workflow_dispatch:
 permissions:
   contents: read
@@ -38,7 +37,7 @@ jobs:
           cd "$RUNNER_TEMP/cctools-port"
           git checkout 490466d7e5adb50006948d753400e2023dbc323d
           cd cctools
-          ./configure --target=x86_64-apple-darwin --prefix="$RUNNER_TEMP/cctools" --without-llvm
+          ./configure --target=x86_64-apple-darwin --prefix="$RUNNER_TEMP/cctools" --disable-tapi-support
           make -j2
           make install
       - name: Cross-build and verify network kext

@@ -1,8 +1,8 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
  * Host test aliases only; never included in the kernel build. */
 #pragma once
-#ifdef _WIN32
 #include <stdint.h>
+#ifdef _WIN32
 #include <string.h>
 #define bzero(p,n) memset((p),0,(n))
 #define bcopy(s,d,n) memmove((d),(s),(n))
