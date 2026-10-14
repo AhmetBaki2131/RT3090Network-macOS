@@ -37,9 +37,10 @@ jobs:
           cd "$RUNNER_TEMP/cctools-port"
           git checkout 490466d7e5adb50006948d753400e2023dbc323d
           cd cctools
-          ./configure --target=x86_64-apple-darwin --prefix="$RUNNER_TEMP/cctools" --disable-tapi-support
-          make -j2
-          make install
+          ./configure --target=x86_64-apple-darwin --prefix="$RUNNER_TEMP/cctools" --disable-tapi-support --disable-lto-support
+          make -C ld64/src/3rd -j2
+          make -C ld64/src/ld -j2
+          make -C ld64/src/ld install
       - name: Cross-build and verify network kext
         shell: bash
         run: |
