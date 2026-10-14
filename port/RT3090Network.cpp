@@ -135,14 +135,14 @@ bool RT3090Network::start(IOService *provider)
     }
     setProperty("RT3090FirmwareAvailable",true);
     if(pci) pci->setProperty("RT3090LastStartError","none");
-    setProperty("RT3090DriverVersion","0.3.4");
+    setProperty("RT3090DriverVersion","0.3.5");
     setProperty("RT3090Attached",true);
     publishScan();
     netif->registerService(); registerService(); return true;
 #endif
 fail:
     IOLog("RT3090Network: start rejected at %s\n",stage);
-    if(pci) { pci->setProperty("RT3090LastStartError",stage); pci->setProperty("RT3090LastAttemptVersion","0.3.4"); }
+    if(pci) { pci->setProperty("RT3090LastStartError",stage); pci->setProperty("RT3090LastAttemptVersion","0.3.5"); }
     cleanup(); super::stop(provider); return false;
 }
 bool RT3090Network::configureInterface(IONetworkInterface *interface)

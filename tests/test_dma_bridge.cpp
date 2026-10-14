@@ -8,6 +8,10 @@
 #include <cassert>
 #include <algorithm>
 #include "rt3090_core.h"
+#ifdef _WIN32
+using caddr_t=char*;
+static void bzero(void *p,size_t n){std::memset(p,0,n);}
+#endif
 #define RTBSD_COMPAT_HPP
 using UInt32=uint32_t; using UInt64=uint64_t; using IOReturn=int;
 enum {kIOReturnSuccess=0,kIODirectionInOut=3,kIOMemoryPhysicallyContiguous=16};
@@ -30,7 +34,7 @@ struct IODMACommand {
     int gen32IOVMSegments(UInt64 *off,Segment32 *s,UInt32 *n){*off=m->size;*n=1;s->fIOVMAddr=emitted_address;s->fLength=m->size;return 0;}
     void release(){delete this;}
 };
-struct IOMemoryMap {size_t getLength(){return 0x8000;}};
+struct IOMemoryMap {size_t length=0x8000;size_t getLength(){return length;}};
 struct IOWorkLoop {bool gated=false;bool inGate(){return gated;}};
 IOWorkLoop *_fWorkloop=nullptr;
 static int kernel_task=0;
@@ -81,5 +85,15 @@ int main(){
     rtbsd_dma_clear_failure();IOMemoryMap map;
     bus_space_write_region_1(&map,nullptr,0,a,sizeof(a));assert(rtbsd_dma_failed());
     rtbsd_dma_clear_failure();bus_space_set_region_4(&map,nullptr,0,0,1);assert(rtbsd_dma_failed());
+    unsigned char bar[0x8000]={};
+    rtbsd_dma_clear_failure();bus_space_write_4(&map,bar,0x100,0x12345678);
+    assert(!rtbsd_dma_failed() && bus_space_read_4(&map,bar,0x100)==0x12345678);
+    for(unsigned off : {1u,0x7ffdu,0x8000u,0xfffffffcu}) {
+        rtbsd_dma_clear_failure();assert(bus_space_read_4(&map,bar,off)==0xffffffffu && rtbsd_dma_failed());
+        rtbsd_dma_clear_failure();bus_space_write_4(&map,bar,off,0);assert(rtbsd_dma_failed());
+    }
+    rtbsd_dma_clear_failure();assert(bus_space_read_4(nullptr,bar,0)==0xffffffffu && rtbsd_dma_failed());
+    rtbsd_dma_clear_failure();bus_space_write_4(&map,nullptr,0,0);assert(rtbsd_dma_failed());
+    map.length=4;rtbsd_dma_clear_failure();bus_space_write_4(&map,bar,0,0);assert(rtbsd_dma_failed());
     puts("PASS: real DMA bridge host-shim lifecycle, scatter-copy, invalid range, gate refusal and 4GiB overflow, null CPU allocation, null MMIO and cyclic chain checks; no physical DMA");
 }

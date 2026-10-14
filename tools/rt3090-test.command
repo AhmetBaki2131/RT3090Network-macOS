@@ -18,7 +18,7 @@ case "$ACTION" in
   [[ -f "$SOURCE/Contents/Info.plist" && -f "$SOURCE/Contents/MacOS/RT3090Network" ]] || { echo "Main RT3090Network.kext is missing beside this script." >&2; exit 1; }
   IDENTIFIER=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$SOURCE/Contents/Info.plist")
   VERSION=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$SOURCE/Contents/Info.plist")
-  [[ "$IDENTIFIER" == "$BUNDLE_ID" && "$VERSION" == 0.3.4 ]] || { echo "Expected RT3090Network 0.3.4; refusing other bundle/version." >&2; exit 1; }
+  [[ "$IDENTIFIER" == "$BUNDLE_ID" && "$VERSION" == 0.3.5 ]] || { echo "Expected RT3090Network 0.3.5; refusing other bundle/version." >&2; exit 1; }
   /usr/bin/plutil -lint "$SOURCE/Contents/Info.plist"
   if [[ "$ACTION" == load ]]; then
    LISTING=$(/usr/sbin/kextstat -b "$BUNDLE_ID")

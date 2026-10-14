@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "crypto-host/windows.h"
 #include <crypto/sha1.h>
 #include <crypto/hmac.h>
 #include <crypto/rijndael.h>

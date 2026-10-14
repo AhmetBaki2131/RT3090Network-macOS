@@ -46,12 +46,12 @@ if args.network_experiment:
     flags += ["-DRT3090_ENABLE_NETWORK_EXPERIMENT=1"]
 
 def compile_one(source):
-    stem = str(source.relative_to(root)).replace("/", "_")
+    stem = source.relative_to(root).as_posix().replace("/", "_")
     target = out / (stem + ".o")
     result = subprocess.run([args.compiler] + flags + ["-c", str(source), "-o", str(target)], capture_output=True, text=True)
     (out / (stem + ".log")).write_text(result.stdout + result.stderr)
     errors = [line for line in result.stderr.splitlines() if "error:" in line]
-    return dict(source=str(source.relative_to(root)), exit_code=result.returncode, errors=errors)
+    return dict(source=source.relative_to(root).as_posix(), exit_code=result.returncode, errors=errors)
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
     results = list(pool.map(compile_one, sources))

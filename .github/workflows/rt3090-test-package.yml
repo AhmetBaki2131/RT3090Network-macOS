@@ -1,0 +1,64 @@
+name: RT3090 host tests and experimental kext
+on:
+  push:
+    branches: ['codex/rt3090-0.3.5-mcu-wakeup']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test-package:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    env:
+      CC: clang
+      CXX: clang++
+      UBSAN_OPTIONS: halt_on_error=1
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install build tools
+        run: sudo apt-get update && sudo apt-get install -y clang build-essential autoconf automake libtool libssl-dev uuid-dev
+      - name: Prepare pinned firmware and run host tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build
+          python3 scripts/prepare_firmware.py --firmware firmware/rt2860.bin --output build/generated/FirmwareData.h
+          for script in scripts/test.sh scripts/test-crypto.sh scripts/test-dma-bridge.sh scripts/test-memchr.sh scripts/test-pci.sh scripts/test-ring.sh; do
+            sh "$script" 2>&1 | tee "build/$(basename "$script" .sh)-ci.log"
+          done
+          for script in scripts/test-*.py tests/test_control.py tests/test_registry_status.py; do
+            python3 "$script" 2>&1 | tee "build/$(basename "$script" .py)-ci.log"
+          done
+      - name: Build pinned Apple ld64 port
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone https://github.com/tpoechtrager/cctools-port.git "$RUNNER_TEMP/cctools-port"
+          cd "$RUNNER_TEMP/cctools-port"
+          git checkout 490466d7e5adb50006948d753400e2023dbc323d
+          cd cctools
+          ./configure --target=x86_64-apple-darwin --prefix="$RUNNER_TEMP/cctools" --without-llvm
+          make -j2
+          make install
+      - name: Cross-build and verify network kext
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/build-network-kext.py --compiler "$(command -v clang)" --linker "$RUNNER_TEMP/cctools/bin/x86_64-apple-darwin-ld" 2>&1 | tee build/network-build-ci.log
+          python3 scripts/audit-high-sierra-imports.py build/network/RT3090Network.kext > build/high-sierra-import-audit-ci.json
+          python3 scripts/audit-diagnostic-start.py --compiler "$(command -v clang)" > build/diagnostic-start-ci.json
+          python3 scripts/make-control-app.py
+          python3 scripts/make-test-package.py --bundle build/network/RT3090Network.kext
+      - name: Upload experimental test package and verification
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: RT3090Network-0.3.5-test-and-verification
+          path: |
+            build/RT3090Network-0.3.5-test.zip*
+            build/*-ci.log
+            build/*-ci.json
+            build/network/compile-results.json
+            build/network/network-structure.json
+          if-no-files-found: error
